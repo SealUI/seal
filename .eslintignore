@@ -1,0 +1,4 @@
+packages/**/lib
+packages/**/__tests__
+tests/
+packages/**/vue.config.js

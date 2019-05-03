@@ -1,11 +1,13 @@
 {
-  "name": "sealui",
-  "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
+    "lint": "vue-cli-service lint src/ packages/**/src/",
+    "changelog": "lerna-changelog",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit"
   },
@@ -26,20 +28,24 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
+    "copy-webpack-plugin": "^5.0.3",
     "eslint": "^5.16.0",
     "eslint-config-sealui": "^1.0.1",
     "eslint-plugin-vue": "^5.0.0",
+    "lerna": "^3.13.3",
+    "lerna-changelog": "^0.8.2",
     "lint-staged": "^8.1.5",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.5.21"
+    "vue-template-compiler": "^2.5.21",
+    "webpack-node-externals": "^1.7.2"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "*.{js,vue}": [
-      "vue-cli-service lint",
+      "yarn lint",
       "git add"
     ]
   }
