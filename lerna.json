@@ -11,6 +11,7 @@
   "npmClient": "yarn",
   "useWorkspaces": true,
   "version": "independent",
+  "conventionalCommits": true,
   "changelog": {
     "repo": "sealui/seal",
     "labels": {
