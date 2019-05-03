@@ -27,6 +27,7 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "eslint": "^5.16.0",
+    "eslint-config-sealui": "^1.0.1",
     "eslint-plugin-vue": "^5.0.0",
     "lint-staged": "^8.1.5",
     "node-sass": "^4.9.0",

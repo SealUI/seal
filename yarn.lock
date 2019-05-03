@@ -3611,6 +3611,11 @@ eslint-config-prettier@^3.3.0:
   dependencies:
     get-stdin "^6.0.0"
 
+eslint-config-sealui@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-sealui/-/eslint-config-sealui-1.0.1.tgz#991c281b1a41e29ebb02f8e83f087d4cac119b64"
+  integrity sha512-6z9+iwdeS0OKHljujj2UWlSPjs4IBGwKdu6HmDzKtnnhxXwbWk9EYYg5hyp27gCe4R4eM7oULvN9AdT4up2n/A==
+
 eslint-loader@^2.1.2:
   version "2.1.2"
   resolved "https://registry.npm.taobao.org/eslint-loader/download/eslint-loader-2.1.2.tgz#453542a1230d6ffac90e4e7cb9cadba9d851be68"
