@@ -1,19 +1,3 @@
-// const vueCommon = require('../../common.config')
-// const { chainWebpack, configureWebpack } = vueCommon
-// delete vueCommon.chainWebpackCallback
-// delete vueCommon.configureWebpack
-// console.log(vueCommon)
-// module.exports = {
-//   ...vueCommon,
-//   configureWebpack: {
-//     ...configureWebpack,
-//   },
-//   chainWebpack(webpackConfig) {
-//     chainWebpack(webpackConfig)
-//   }
-// }
-
-
 const nodeExternals = require('webpack-node-externals')
 const path = require('path')
 const pkg = require('./package.json')
@@ -27,8 +11,7 @@ const _BANNER = [
 let configureWebpack = {}
 configureWebpack.externals = [
   {
-    'vue': 'Vue',
-    'lottie-web': 'lottie'
+    vue: 'vue'
   },
   nodeExternals(),
   nodeExternals({
