@@ -1,15 +1,16 @@
 {
-  "name": "sealui-lottie",
+  "name": "sealui-storage",
   "version": "1.0.1",
-  "description": "Sealui Lottie ",
+  "description": "SealUI Storage",
   "keywords": [
-    "SealUI",
-    "Lottie"
+    "sealui",
+    "sealui-storage",
+    "storage"
   ],
   "author": "听着情歌流泪 <develop@lingtal.com>",
   "homepage": "https://github.com/SealUI/seal#readme",
   "license": "MIT",
-  "main": "lib/sealui-lottie.umd.min.js",
+  "main": "lib/sealui-storage.umd.min.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -20,16 +21,13 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SealUI/seal.git",
-    "directory": "packages/sealui-lottie"
+    "directory": "packages/sealui-storage"
   },
   "scripts": {
-    "build": "vue-cli-service build --target lib --name sealui-lottie src/index.js",
+    "build": "vue-cli-service build --target lib --name sealui-storage src/index.js",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/SealUI/seal/issues"
-  },
-  "dependencies": {
-    "lottie-web": "^5.5.2"
   }
 }
