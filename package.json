@@ -33,6 +33,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
+    "chalk": "^2.4.2",
     "commitlint-config-cz": "^0.11.1",
     "copy-webpack-plugin": "^5.0.3",
     "cz-customizable": "^6.0.0",
