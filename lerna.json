@@ -6,6 +6,9 @@
     "publish": {
       "ignoreChanges": ["__tests__/**",".npmignore"],
       "message": "chore(release): publish %s"
+    },
+    "version": {
+      "exact": true
     }
   },
   "npmClient": "yarn",
