@@ -1,0 +1,32 @@
+{
+  "name": "sealui-request",
+  "version": "1.0.0",
+  "description": "SealUI Request ",
+  "keywords": [
+    "sealui-request",
+    "SealUI",
+    "Request"
+  ],
+  "author": "听着情歌流泪 <develop@lingtal.com>",
+  "homepage": "https://github.com/SealUI/seal/tree/master/packages/sealui-request#readme",
+  "license": "MIT",
+  "main": "lib/sealui-request.umd.min.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SealUI/seal.git"
+  },
+  "scripts": {
+    "build": "vue-cli-service build --target lib --name sealui-request src/index.js",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/SealUI/seal/issues"
+  }
+}

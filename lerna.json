@@ -8,7 +8,13 @@
       "message": "chore(release): publish %s"
     },
     "version": {
-      "exact": true
+      "exact": true,
+      "allowBranch": "master",
+      "message": "chore(release): publish %s"
+    },
+    "create": {
+      "homepage": "https://github.com/SealUI/seal",
+      "license": "MIT"
     }
   },
   "npmClient": "yarn",
