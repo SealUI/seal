@@ -3,12 +3,13 @@ import Qs from 'qs'
 
 const defaultConfig = {
   url: '',
+  baseURL: '/',
   method: 'POST',
-  transformRequest: [function(data) {
+  transformRequest: [function (data) {
     data = Qs.stringify(data)
     return data
   }],
-  transformResponse: [function(data) {
+  transformResponse: [function (data) {
     return data
   }],
   headers: {
@@ -18,7 +19,7 @@ const defaultConfig = {
   params: {
 
   },
-  paramsSerializer: function(params) {
+  paramsSerializer: function (params) {
     return Qs.stringify(params)
   },
   data: {
@@ -28,73 +29,14 @@ const defaultConfig = {
   retry: 3,
   retryDelay: 1000,
   withCredentials: true,
-  // default
   responseType: 'json',
-  // default
-
-  // onUploadProgress: function (progressEvent) {
-  //     // Do whatever you want with the native progress event
-  // },
-
-  // onDownloadProgress: function (progressEvent) {
-  //     // Do whatever you want with the native progress event
-  // },
-
   maxContentLength: 2000,
-  validateStatus: function(status) {
+  validateStatus: function (status) {
     return status >= 200 && status < 300 // default
   },
   maxRedirects: 5
 }
 
-/**
- * 请求拦截器
- */
-axios.interceptors.request.use(function(opts) {
-  return opts
-}, function(err) {
-  /* 请求错误时做些事 */
-  return Promise.reject(err)
-})
-
-/**
- * 响应拦截器
- */
-axios.interceptors.response.use((response) => {
-  return response
-}, (err) => {
-  let config = err.config
-  // 如果配置不存在或重试选项没有设置，则直接返回拒绝
-  if (!config || !config.retry) return Promise.reject(checkErrorMsg(err))
-  // 设置重试次数变量
-  config.__retryCount = config.__retryCount || 0
-  // 检查一下是否已经把重试的总数画满了
-  if (config.__retryCount >= config.retry) {
-    return Promise.reject(checkErrorMsg(err))
-  }
-
-  // 增加重试计数
-  config.__retryCount += 1
-  // Create new promise to handle exponential backoff
-  let backoff = new Promise(function (resolve) {
-    setTimeout(() => {
-      resolve()
-    }, config.retryDelay || 1)
-  })
-  // 返回让axios重试请求
-  return backoff.then(function () {
-    return axios(config)
-  })
-})
-
-/**
- * 检查错误状态码
- *
- * @Author 听着情歌流泪
- * @Date   2018-09-03
- * @param  {[type]}   error [description]
- * @return {[type]}         [description]
- */
 const checkErrorMsg = (error) => {
   if (error && error.response) {
     switch (error.response.status) {
@@ -148,34 +90,96 @@ const checkErrorMsg = (error) => {
   }
 }
 
-const request = ({ url, method = 'GET', data = {}, header = {}, dataType = 'json', withCredentials = false, retry = 3, retryDelay = 1000, timeout = 3000 }) => {
-  return new Promise((resolve, reject) => {
-    let config = {
-      method: method,
-      url: url,
-      data: data,
-      responseType: dataType,
-      timeout: timeout,
-      headers: header,
-      retry: retry,
-      retryDelay: retryDelay,
-      withCredentials: withCredentials
-    }
-    let opts = Object.assign(defaultConfig, config || {})
+const request = ({ url = '', method = 'GET', data = {}, header = {}, dataType = 'json', withCredentials = false, retry = 3, retryDelay = 2000, timeOut = 5000, beforeRequest = null, afterRequest = null, success = null, fail = null, complete = null }) => {
+  let config = {
+    method: method,
+    url: url,
+    data: data,
+    // data: data.java ? data : Qs.stringify(data),
+    responseType: dataType,
+    dataType: dataType,
+    timeout: timeOut,
+    headers: header,
+    retry: retry,
+    retryDelay: retryDelay,
+    withCredentials: withCredentials,
+    beforeRequest: beforeRequest,
+    afterRequest: afterRequest,
+    success: success,
+    fail: fail,
+    complete: complete
+  }
+  let opts = Object.assign(defaultConfig, config || {})
 
-    if (method.toUpperCase() === 'GET' || method.toUpperCase() === 'DELETE') {
-      opts.params = data ? data : ''
+  if (method.toUpperCase() === 'GET' || method.toUpperCase() === 'DELETE') {
+    opts.params = data || ''
+  }
+  if (method.toUpperCase() === 'POST' || method.toUpperCase() === 'PUT' || method.toUpperCase() === 'PATCH') {
+    opts.params = ''
+  }
+
+  /**
+   * 请求拦截器
+   */
+  axios.interceptors.request.use(function (opts) {
+    if (opts.beforeRequest && typeof opts.beforeRequest === 'function') {
+      opts.beforeRequest()
     }
-    if (method.toUpperCase() === 'POST' || method.toUpperCase() === 'PUT' || method.toUpperCase() === 'PATCH') {
-      opts.params = ''
+    return opts
+  }, function (err) {
+    /* 请求错误时做些事 */
+    return Promise.reject(checkErrorMsg(err))
+  })
+
+  /**
+   * 响应拦截器
+   */
+  axios.interceptors.response.use((response) => {
+    if (opts.afterRequest && typeof opts.afterRequest === 'function') {
+      opts.afterRequest()
     }
-    // axios.request(opts)
-    axios(opts).then((resource) => {
-      resolve(resource.data)
+    return response
+  }, (err) => {
+    let config = err.config
+    // 如果配置不存在或重试选项没有设置，则直接返回拒绝
+    if (!config || !config.retry) return Promise.reject(err)
+    // 设置重试次数变量
+    config.__retryCount = config.__retryCount || 0
+    // 检查一下是否已经把重试的总数画满了
+    if (config.__retryCount >= config.retry) {
+      return Promise.reject(checkErrorMsg(err))
+    }
+
+    // 增加重试计数
+    config.__retryCount += 1
+    // Create new promise to handle exponential backoff
+    let backoff = new Promise(function (resolve) {
+      setTimeout(function () {
+        resolve()
+      }, config.retryDelay || 1)
     })
-      .catch((error) => {
-        reject(error)
-      })
+    // 返回让axios重试请求
+    return backoff.then(function () {
+      return axios(config)
+    })
+  })
+
+  return new Promise((resolve, reject) => {
+    axios(opts).then((resource) => {
+      if (opts.success && typeof opts.success === 'function') {
+        return opts.success(resource.data)
+      }
+      return resolve(resource.data)
+    }).catch((error) => {
+      if (opts.fail && typeof opts.fail === 'function') {
+        return opts.fail(error)
+      }
+      return reject(error)
+    }).finally(() => {
+      if (opts.complete && typeof opts.complete === 'function') {
+        return opts.complete()
+      }
+    })
   })
 }
 
