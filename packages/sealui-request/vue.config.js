@@ -11,7 +11,8 @@ const _BANNER = [
 let configureWebpack = {}
 configureWebpack.externals = [
   {
-    vue: 'vue'
+    vue: 'vue',
+    axios: 'axios'
   },
   nodeExternals(),
   nodeExternals({
