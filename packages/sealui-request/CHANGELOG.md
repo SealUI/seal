@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/SealUI/seal/compare/sealui-request@1.0.0...sealui-request@1.0.1) (2019-05-04)
+
+
+### Features
+
+* 新增`sealui-request`请求错误时的回调 ([45a677a](https://github.com/SealUI/seal/commit/45a677a))
+
+
+
+
+
 # 1.0.0 (2019-05-04)
 
 

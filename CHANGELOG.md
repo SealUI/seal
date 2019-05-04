@@ -2,6 +2,27 @@
 #  (2019-05-04)
 [Full Changelog](https://github.com/SealUI/seal/compare/v1.1.0...v)
 
+## Chore
+
+* release: release sealui-request - 1.0.1 ([5381375](https://github.com/SealUI/seal/commit/5381375))
+* release: publish %s ([59ec6b1](https://github.com/SealUI/seal/commit/59ec6b1))
+
+## Feat
+
+* 新增`sealui-request`请求错误时的回调 ([45a677a](https://github.com/SealUI/seal/commit/45a677a))
+* 完成`sealui-request`,更新文档 ([9020102](https://github.com/SealUI/seal/commit/9020102))
+* 完善`sealui-request` ([aad53ba](https://github.com/SealUI/seal/commit/aad53ba))
+* 新增`sealui-request` ([7215c84](https://github.com/SealUI/seal/commit/7215c84))
+* 修改配置 ([8934b92](https://github.com/SealUI/seal/commit/8934b92))
+* update package.json ([20fc347](https://github.com/SealUI/seal/commit/20fc347))
+
+## Fix
+
+* 更改`sealui-request`版本号 ([8ca9b01](https://github.com/SealUI/seal/commit/8ca9b01))
+<a name=""></a>
+#  (2019-05-04)
+[Full Changelog](https://github.com/SealUI/seal/compare/v1.1.0...v)
+
 ## Feat
 
 * 完成`sealui-request`,更新文档 ([9020102](https://github.com/SealUI/seal/commit/9020102))
