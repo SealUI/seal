@@ -127,7 +127,7 @@ const request = ({ url = '', method = 'GET', data = {}, header = {}, dataType = 
     return opts
   }, function (err) {
     if (opts.fail && typeof opts.fail === 'function') {
-      return opts.fail(checkErrorMsg(err))
+      return opts.fail(err)
     }
     /* 请求错误时做些事 */
     return Promise.reject(checkErrorMsg(err))
