@@ -4,13 +4,11 @@
   ],
   "command": {
     "publish": {
-      "ignoreChanges": ["__tests__/**",".npmignore"],
-      "message": "chore(release): publish %s"
+      "ignoreChanges": ["__tests__/**",".npmignore"]
     },
     "version": {
       "exact": true,
-      "allowBranch": "master",
-      "message": "chore(release): publish %s"
+      "allowBranch": "master"
     },
     "create": {
       "homepage": "https://github.com/SealUI/seal",
