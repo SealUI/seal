@@ -95,7 +95,6 @@ const request = ({ url = '', method = 'GET', data = {}, header = {}, dataType = 
     method: method,
     url: url,
     data: data,
-    // data: data.java ? data : Qs.stringify(data),
     responseType: dataType,
     dataType: dataType,
     timeout: timeOut,
@@ -127,6 +126,9 @@ const request = ({ url = '', method = 'GET', data = {}, header = {}, dataType = 
     }
     return opts
   }, function (err) {
+    if (opts.fail && typeof opts.fail === 'function') {
+      return opts.fail(checkErrorMsg(err))
+    }
     /* 请求错误时做些事 */
     return Promise.reject(checkErrorMsg(err))
   })
