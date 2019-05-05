@@ -22,6 +22,8 @@
   "changelog": {
     "repo": "sealui/seal",
     "labels": {
+      "feature": "New Feature",
+      "bug": "Bug Fix",
       "tag: new feature": ":rocket: New Feature",
       "tag: breaking change": ":boom: Breaking Change",
       "tag: bug fix": ":bug: Bug Fix",
