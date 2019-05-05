@@ -8,7 +8,7 @@
     "storage"
   ],
   "author": "听着情歌流泪 <develop@lingtal.com>",
-  "homepage": "https://github.com/SealUI/seal#readme",
+  "homepage": "https://github.com/SealUI/seal/tree/master/packages/sealui-request#readme",
   "license": "MIT",
   "main": "lib/sealui-storage.umd.min.js",
   "directories": {
@@ -29,5 +29,8 @@
   },
   "bugs": {
     "url": "https://github.com/SealUI/seal/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

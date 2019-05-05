@@ -7,7 +7,7 @@
     "Lottie"
   ],
   "author": "听着情歌流泪 <develop@lingtal.com>",
-  "homepage": "https://github.com/SealUI/seal#readme",
+  "homepage": "https://github.com/SealUI/seal/tree/master/packages/sealui-request#readme",
   "license": "MIT",
   "main": "lib/sealui-lottie.umd.min.js",
   "directories": {
@@ -31,5 +31,8 @@
   },
   "dependencies": {
     "lottie-web": "^5.5.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
