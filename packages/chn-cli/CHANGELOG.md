@@ -20,3 +20,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 * **chn-cli:** 新增chn-cli ([af3b99d](https://github.com/SealUI/seal/commit/af3b99d))
+
+
+
+
+
+## 1.0.1 (2019-05-24)
+
+
+### Features
+
+* **chn-cli:** 新增chn-cli ([af3b99d](https://github.com/SealUI/seal/commit/af3b99d))
