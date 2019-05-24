@@ -1,7 +1,7 @@
 {
   "name": "chn-cli",
   "version": "1.0.1",
-  "description": "Speiyou chn-cli",
+  "description": "Speiyou 模块管理器",
   "author": "听着情歌流泪 <develop@lingtal.com>",
   "homepage": "https://github.com/SealUI/seal/tree/master/packages/chn-cli#readme",
   "license": "MIT",
@@ -17,10 +17,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SealUI/seal.git"
+    "url": "git+https://github.com/SealUI/seal.git",
+    "directory": "packages/chn-cli"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "babel src --out-dir lib --presets @babel/preset-env --plugins @babel/plugin-transform-runtime"
   },
   "bugs": {
     "url": "https://github.com/SealUI/seal/issues"
