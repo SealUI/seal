@@ -10,8 +10,6 @@
     "changelog": "lerna-changelog",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit",
-    "version": "conventional-changelog --config ./changelog-generator/index.js -i CHANGELOG.md -s && git add CHANGELOG.md",
-    "postversion": "git push $(git config branch.$(git rev-parse --abbrev-ref HEAD).remote) $(git rev-parse --abbrev-ref HEAD):$(git rev-parse --abbrev-ref HEAD)",
     "release": "node ./scripts/release.js"
   },
   "dependencies": {

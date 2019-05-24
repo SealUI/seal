@@ -8,6 +8,24 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
+* 修改bug ([e6b5034](https://github.com/SealUI/seal/commit/e6b5034))
+* 更新packages的配置 ([a11d899](https://github.com/SealUI/seal/commit/a11d899))
+
+
+### Features
+
+* **chn-cli:** 新增chn-cli ([af3b99d](https://github.com/SealUI/seal/commit/af3b99d))
+* 更新.npmignore ([205b1d1](https://github.com/SealUI/seal/commit/205b1d1))
+
+
+
+
+
+## [1.1.1](https://github.com/SealUI/seal/compare/sealui-storage@1.1.0...sealui-storage@1.1.1) (2019-05-24)
+
+
+### Bug Fixes
+
 * 更新packages的配置 ([a11d899](https://github.com/SealUI/seal/commit/a11d899))
 
 
