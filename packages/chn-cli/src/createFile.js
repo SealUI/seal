@@ -117,7 +117,7 @@ export default {
   ]
 
   // 创建 modules
-  moduleFiles.forEach(file => {
+  moduleFiles.forEach((file) => {
     try {
       fs.outputFileSync(path.join(ModulePath, file.filename), file.content)
     } catch (err) {
@@ -125,7 +125,7 @@ export default {
     }
   })
   if (vuex) {
-    vuexFiles.forEach(file => {
+    vuexFiles.forEach((file) => {
       try {
         fs.outputFileSync(path.join(ModulePath, file.filename), file.content)
       } catch (err) {
@@ -139,7 +139,7 @@ export default {
     mainVue: `${moduleName}.vue`,
     vuex: `${moduleName}`,
     layoutType: `${position}`,
-    mock: vuex
+    mock: false
   })
   try {
     await fs.writeFile(moduleConfig, JSON.stringify(modulesFile, null, 2) + os.EOL)
