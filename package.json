@@ -46,7 +46,7 @@
     "vue-template-compiler": "^2.5.21",
     "webpack-node-externals": "^1.7.2"
   },
-  "gitHooks": {
+  "gitHooks1": {
     "commit-msg": "commitlint -e $GIT_PARAMS",
     "pre-commit": "lint-staged"
   },
