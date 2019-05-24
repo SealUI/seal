@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/SealUI/seal/compare/chn-cli@1.0.2...chn-cli@1.0.3) (2019-05-24)
+
+
+### Bug Fixes
+
+* **chn-cli:** 修复创建mock的bug ([fd68e6b](https://github.com/SealUI/seal/commit/fd68e6b))
+
+
+
+
+
 ## [1.0.2](https://github.com/SealUI/seal/compare/chn-cli@1.0.1...chn-cli@1.0.2) (2019-05-24)
 
 
