@@ -6,7 +6,7 @@
   "homepage": "https://github.com/SealUI/seal/tree/master/packages/chn-cli#readme",
   "license": "MIT",
   "bin": {
-    "chn": "lib/new.js"
+    "chn": "lib/index.js"
   },
   "directories": {
     "lib": "lib",
@@ -30,6 +30,7 @@
     "@babel/runtime": "^7.4.5",
     "camelcase": "^5.3.1",
     "chalk": "^2.4.2",
+    "commander": "^2.20.0",
     "fs-extra": "^8.0.1",
     "inquirer": "^6.3.1",
     "uppercamelcase": "^3.0.0"
