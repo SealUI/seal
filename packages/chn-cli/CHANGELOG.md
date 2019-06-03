@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/SealUI/seal/compare/chn-cli@1.0.4...chn-cli@1.0.5) (2019-06-03)
+
+
+### Bug Fixes
+
+* **chn-cli:** 修复启动环境重名 ([e506520](https://github.com/SealUI/seal/commit/e506520))
+
+
+
+
+
 ## [1.0.4](https://github.com/SealUI/seal/compare/chn-cli@1.0.3...chn-cli@1.0.4) (2019-06-03)
 
 
