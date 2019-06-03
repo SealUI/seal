@@ -13,7 +13,7 @@ const chalk = require('chalk')
 const config = require('./config')
 const createFile = require('./createFile')
 
-const resolve = dir => {
+const resolve = (dir) => {
   return path.resolve(process.cwd(), dir)
 }
 const moduleConfig = `${resolve('src')}/frameworker/moduleManage/moduleConfig.json`
@@ -56,7 +56,7 @@ const createNewModule = async () => {
       type: 'input',
       validate: function(input) {
         const done = this.async()
-        fs.exists(path.resolve(process.cwd(), `src/modules/${pageName}/`, input), exists => {
+        fs.exists(path.resolve(process.cwd(), `src/modules/${pageName}/`, input), (exists) => {
           if (exists) {
             done(` ${chalk.red('✖ ' + input)} 已存在. 请重新输入...`)
           } else {
@@ -82,8 +82,13 @@ const createNewModule = async () => {
       name: 'yes',
       type: 'confirm',
       message(answers) {
-        const SEP = '---------------------------------------------------------------------------------------------'
-        return `${SEP}\n  ⁉ 确定在${chalk.magenta.bold(clientName)}的${chalk.cyan(pageName)}下新建模块${chalk.yellow(moduleName)}并挂载在${chalk.green(position)}布局下吗?\n  ${SEP}\n`
+        const SEP =
+          '---------------------------------------------------------------------------------------------'
+        return `${SEP}\n  ⁉ 确定在${chalk.magenta.bold(clientName)}的${chalk.cyan(
+          pageName
+        )}下新建模块${chalk.yellow(moduleName)}并挂载在${chalk.green(
+          position
+        )}布局下吗?\n  ${SEP}\n`
       }
     }
   ])
@@ -96,7 +101,7 @@ const createNewModule = async () => {
   }
 }
 createNewModule()
-  .then(res => {
+  .then((res) => {
     if (res) {
       console.log(
         chalk.bold.green(`
@@ -113,7 +118,7 @@ createNewModule()
     console.log('')
     process.exit(0)
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err, 1)
     process.exit(1)
   })
