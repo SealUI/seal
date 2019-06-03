@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/SealUI/seal/compare/chn-cli@1.0.3...chn-cli@1.0.4) (2019-06-03)
+
+
+### Features
+
+* **chn-cli:** 新增编译、启动环境 ([43d0d96](https://github.com/SealUI/seal/commit/43d0d96))
+
+
+
+
+
 ## [1.0.3](https://github.com/SealUI/seal/compare/chn-cli@1.0.2...chn-cli@1.0.3) (2019-05-24)
 
 
