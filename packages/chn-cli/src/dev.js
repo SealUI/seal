@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-
-console.log()
 process.on('exit', () => {
   console.log()
 })
@@ -17,7 +15,7 @@ const dev = async () => {
       choices: [
         {
           name: '🛵 开发域名',
-          value: 'dev'
+          value: 'dev:dev'
         },
         {
           name: '🛩  测试域名',

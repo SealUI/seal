@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-console.log()
 process.on('exit', () => {
   console.log()
 })
