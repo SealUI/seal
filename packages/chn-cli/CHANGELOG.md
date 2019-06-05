@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/SealUI/seal/compare/chn-cli@1.0.5...chn-cli@1.0.6) (2019-06-05)
+
+
+### Features
+
+* **chn-cli:** 新增自动构建zip包 ([a11c37a](https://github.com/SealUI/seal/commit/a11c37a))
+
+
+
+
+
 ## [1.0.5](https://github.com/SealUI/seal/compare/chn-cli@1.0.4...chn-cli@1.0.5) (2019-06-03)
 
 
