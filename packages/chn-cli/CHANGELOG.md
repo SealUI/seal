@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/SealUI/seal/compare/chn-cli@1.0.6...chn-cli@1.0.7) (2019-06-05)
+
+
+### Bug Fixes
+
+* **chn-cli:** 修复引用文件路径问题 ([fdc34dd](https://github.com/SealUI/seal/commit/fdc34dd))
+
+
+
+
+
 ## [1.0.6](https://github.com/SealUI/seal/compare/chn-cli@1.0.5...chn-cli@1.0.6) (2019-06-05)
 
 
