@@ -43,7 +43,7 @@ program
   .option('--pack', '创建压缩包')
   .action((cmd) => {
     const options = cleanArgs(cmd)
-    require('./build')(options)
+    require('../lib/build')(options)
   })
 // 启动开发环境
 program
@@ -57,7 +57,7 @@ program
   .command('pack src dest')
   .description('压缩zip包')
   .action((src, dest) => {
-    require('./pack')(src, dest)
+    require('../lib/pack')(src, dest)
   })
 
 program.arguments('<command>').action((cmd) => {
