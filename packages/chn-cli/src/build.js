@@ -56,10 +56,16 @@ const build = async (options) => {
   }
 
   let projectName
+  let isPack = false
+  if (options.packName) {
+    projectName = options.packName
+    isPack = true
+  }
   if (options.pack) {
     projectName = require(process.cwd() + '/package.json').projectName
+    isPack = true
   }
-  const message = options.pack
+  const message = options.isPack
     ? `⁉ 确定编译 ${chalk.magenta.bold(environmentName)} 并生成 ${chalk.magenta.bold('压缩包')}?`
     : `⁉ 确定编译 ${chalk.magenta.bold(environmentName)}?`
   const { yes } = await inquirer.prompt([
@@ -79,7 +85,7 @@ const build = async (options) => {
       // spinner.stop()
       return {
         yes,
-        pack: options.pack,
+        pack: options.pack || options.packName,
         environmentName,
         environmentEnName,
         projectName

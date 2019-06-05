@@ -23,41 +23,42 @@ const cleanArgs = (cmd) => {
   return args
 }
 
-program
-  .version(require('../package').version)
-  // .description('输出版本信息')
-  .usage('<command> [options]')
+program.version(require('../package').version).usage('<command> [options]')
 
 // 创建项目
 program
   .command('create')
   .description('创建一个模块')
   .action((cmd) => {
-    require('../lib/new')
+    require('./new')
   })
 
 // 编译项目
 program
   .command('build')
   .description('编译代码')
-  .option('--pack', '创建压缩包')
+  .option('--pack', '根据编译环境创建压缩包')
+  .option('--pack-name <pack-name>', '根据输入的 <pack-name> 创建压缩包')
+  .allowUnknownOption()
   .action((cmd) => {
     const options = cleanArgs(cmd)
-    require('../lib/build')(options)
+    require('./build')(options)
   })
 // 启动开发环境
 program
-  .command('dev')
+  .command('serve [mode]')
   .description('启动开发环境')
-  .action((cmd) => {
-    require('../lib/dev')
+  .allowUnknownOption()
+  .action((entry, cmd) => {
+    // const options = cleanArgs(cmd)
+    require('./serve')(entry, cmd)
   })
 
 program
   .command('pack src dest')
   .description('压缩zip包')
   .action((src, dest) => {
-    require('../lib/pack')(src, dest)
+    require('./pack')(src, dest)
   })
 
 program.arguments('<command>').action((cmd) => {
