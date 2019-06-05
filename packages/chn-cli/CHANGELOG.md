@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/SealUI/seal/compare/chn-cli@1.0.7...chn-cli@1.0.8) (2019-06-05)
+
+
+### Features
+
+* **chn-cli:** 新增编译传入参数，优化性能 ([2f3e1d2](https://github.com/SealUI/seal/commit/2f3e1d2))
+
+
+
+
+
 ## [1.0.7](https://github.com/SealUI/seal/compare/chn-cli@1.0.6...chn-cli@1.0.7) (2019-06-05)
 
 
