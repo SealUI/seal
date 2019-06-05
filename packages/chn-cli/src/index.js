@@ -8,6 +8,21 @@ process.on('exit', () => {
 const program = require('commander')
 const chalk = require('chalk')
 
+const camelize = (str) => {
+  return str.replace(/-(\w)/g, (_, c) => (c ? c.toUpperCase() : ''))
+}
+
+const cleanArgs = (cmd) => {
+  const args = {}
+  cmd.options.forEach((o) => {
+    const key = camelize(o.long.replace(/^--/, ''))
+    if (typeof cmd[key] !== 'function' && typeof cmd[key] !== 'undefined') {
+      args[key] = cmd[key]
+    }
+  })
+  return args
+}
+
 program
   .version(require('../package').version)
   // .description('输出版本信息')
@@ -25,8 +40,10 @@ program
 program
   .command('build')
   .description('编译代码')
+  .option('--pack', '创建压缩包')
   .action((cmd) => {
-    require('../lib/build')
+    const options = cleanArgs(cmd)
+    require('./build')(options)
   })
 // 启动开发环境
 program
@@ -34,6 +51,13 @@ program
   .description('启动开发环境')
   .action((cmd) => {
     require('../lib/dev')
+  })
+
+program
+  .command('pack src dest')
+  .description('压缩zip包')
+  .action((src, dest) => {
+    require('./pack')(src, dest)
   })
 
 program.arguments('<command>').action((cmd) => {
@@ -55,4 +79,3 @@ program.parse(process.argv)
 if (!process.argv.slice(2).length) {
   program.outputHelp()
 }
-

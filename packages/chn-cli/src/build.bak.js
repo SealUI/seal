@@ -19,7 +19,7 @@ const getDates = () => {
   return year + month + day + '-' + h
 }
 
-const build = async (options) => {
+const build = async () => {
   const { environment } = await inquirer.prompt([
     {
       name: 'environment',
@@ -55,11 +55,18 @@ const build = async (options) => {
     environmentEnName = 'development'
   }
 
+  const { pack } = await inquirer.prompt([
+    {
+      name: 'pack',
+      type: 'confirm',
+      message: '是否生成压缩包?'
+    }
+  ])
   let projectName
-  if (options.pack) {
+  if (pack) {
     projectName = require(process.cwd() + '/package.json').projectName
   }
-  const message = options.pack
+  const message = pack
     ? `⁉ 确定编译 ${chalk.magenta.bold(environmentName)} 并生成 ${chalk.magenta.bold('压缩包')}?`
     : `⁉ 确定编译 ${chalk.magenta.bold(environmentName)}?`
   const { yes } = await inquirer.prompt([
@@ -79,37 +86,34 @@ const build = async (options) => {
       // spinner.stop()
       return {
         yes,
-        pack: options.pack,
+        pack,
         environmentName,
         environmentEnName,
         projectName
       }
-    } catch (e) {
-      process.exit(0)
-    }
+    } catch (e) {}
   } else {
     return { yes }
   }
 }
-module.exports = (...args) => {
-  build(...args)
-    .catch((err) => {
-      console.error(err)
+
+build()
+  .catch((err) => {
+    console.error(err)
+    process.exit(1)
+  })
+  .then((res) => {
+    if (!res.yes) {
+      console.log(chalk.yellowBright('  🔐  取消编译...'))
       process.exit(1)
-    })
-    .then((res) => {
-      if (!res.yes) {
-        console.log(chalk.yellowBright('  🔐  取消编译...'))
-        process.exit(1)
-      }
-      if (res.environmentName) {
-        console.log(chalk.greenBright(` ✔ 🛠  ${res.environmentName} 编译完成...`))
-      }
-      if (res.pack) {
-        require('./pack')(
-          'dist',
-          res.projectName + '_' + res.environmentEnName + '_' + getDates() + '.zip'
-        )
-      }
-    })
-}
+    }
+    if (res.environmentName) {
+      console.log(chalk.greenBright(` ✔ 🛠  ${res.environmentName} 编译完成...`))
+    }
+    if (res.pack) {
+      require('./pack')(
+        'dist',
+        res.projectName + '_' + res.environmentEnName + '_' + getDates() + '.zip'
+      )
+    }
+  })
