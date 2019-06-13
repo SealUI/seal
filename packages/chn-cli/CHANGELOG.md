@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/SealUI/seal/compare/chn-cli@1.0.8...chn-cli@1.0.9) (2019-06-13)
+
+
+### Features
+
+* **chn-cli:** 新增编译生产环境自动切换到master分支 ([0919399](https://github.com/SealUI/seal/commit/0919399))
+
+
+
+
+
 ## [1.0.8](https://github.com/SealUI/seal/compare/chn-cli@1.0.7...chn-cli@1.0.8) (2019-06-05)
 
 
