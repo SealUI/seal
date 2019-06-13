@@ -45,6 +45,33 @@ const build = async (options) => {
   let environmentName
   let environmentEnName
   if (environment === 'build:prod') {
+    try {
+      const { stdout } = await execa('git', ['rev-parse', '--abbrev-ref', 'HEAD'])
+      if (stdout !== 'master') {
+        console.log(
+          chalk.redBright('\n 😱 Oh,No!!! 你怎么能在非 [ master ] 分支上构建生产环境的代码了...\n')
+        )
+        const { co } = await inquirer.prompt([
+          {
+            name: 'co',
+            type: 'confirm',
+            message(answers) {
+              return '👨‍💻 需要帮你切换到 master 分支吗？'
+            }
+          }
+        ])
+        if (!co) {
+          console.log(chalk.yellowBright('\n  🔐  取消编译...'))
+          process.exit(0)
+          return
+        } else {
+          const { code } = await execa('git', ['checkout', 'master'])
+          if (code === 0) {
+            console.log(chalk.greenBright('\n  🎊 已切换到 master 分支，继续执行编译...\n'))
+          }
+        }
+      }
+    } catch (err) {}
     environmentName = '生产环境'
     environmentEnName = 'production'
   } else if (environment === 'build:test') {
@@ -65,7 +92,7 @@ const build = async (options) => {
     projectName = require(process.cwd() + '/package.json').projectName
     isPack = true
   }
-  const message = options.isPack
+  const message = isPack
     ? `⁉ 确定编译 ${chalk.magenta.bold(environmentName)} 并生成 ${chalk.magenta.bold('压缩包')}?`
     : `⁉ 确定编译 ${chalk.magenta.bold(environmentName)}?`
   const { yes } = await inquirer.prompt([
