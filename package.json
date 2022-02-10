@@ -46,7 +46,7 @@
     "lerna": "^3.13.3",
     "lerna-changelog": "^0.8.2",
     "lint-staged": "^8.1.5",
-    "node-sass": "^4.9.0",
+    "node-sass": "^7.0.0",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.5.21",
     "webpack-node-externals": "^1.7.2"
